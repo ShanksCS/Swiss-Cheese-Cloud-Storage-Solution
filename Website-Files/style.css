@@ -63,3 +63,19 @@ button {
     justify-content: center;
     align-items: center;
 }
+
+/* In your style.css */
+.logo-wrapper {
+  width: 250px;       /* Desired final width */
+  height: 250px;      /* Desired final height */
+  overflow: hidden;   /* Hide anything that spills out */
+  margin: 0 auto;     /* Center container if you like */
+}
+
+.logo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Crops image to fill container */
+}
+
+
