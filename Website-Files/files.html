@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>File Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="logo-wrapper">
+      <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
+    </div>
+
+    <h1>Manage Your Files</h1>
+
+    <!-- Upload Form -->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <label for="fileUpload">Select a file to upload:</label>
+      <input type="file" id="fileUpload" name="fileUpload" required>
+
+      <button type="submit">Upload</button>
+    </form>
+
+    <!-- File List -->
+    <div class="file-list">
+      <h3>Uploaded Files</h3>
+
+      <!-- Example file entry -->
+      <div class="file-entry">
+        <span>report.pdf</span>
+        <div class="wrap">
+          <form action="/view/report.pdf" method="GET" style="margin-right: 10px;">
+            <button type="submit">View</button>
+          </form>
+          <form action="/delete/report.pdf" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Repeat file-entry div for each file -->
+    </div>
+  </div>
+</body>
+
+</html>
