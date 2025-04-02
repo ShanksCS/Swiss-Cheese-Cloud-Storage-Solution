@@ -5,7 +5,7 @@ session_start();
 $host = 'localhost';
 $db   = 'scss_sql';
 $user = 'root';
-$pass = 'your_mysql_password'; // Replace with your actual MySQL password
+$pass = '1234'; // Replace with your actual MySQL password
 
 // Connect to database
 $conn = new mysqli($host, $user, $pass, $db);
