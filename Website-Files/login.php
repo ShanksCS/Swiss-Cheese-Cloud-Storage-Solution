@@ -3,7 +3,7 @@ session_start();
 
 // Database config
 $host = 'localhost';
-$db   = 'scss-sql';
+$db   = 'scss_sql';
 $user = 'root';
 $pass = 'your_mysql_password'; // Replace with your actual MySQL password
 
