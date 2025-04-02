@@ -21,6 +21,16 @@ body {
     text-align: center;
 }
 
+.error {
+    border: 2px solid red;
+    background-color: #ffe0e0;
+    color: red;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
 h1 {
     color: #fcba03;
 }
