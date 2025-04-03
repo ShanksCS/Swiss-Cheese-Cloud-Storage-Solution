@@ -22,14 +22,17 @@ body {
 }
 
 .error {
-    border: 2px solid red;
     background-color: #ffe0e0;
     color: red;
-    padding: 10px;
+    padding: 12px;
+    border: 2px solid red;
     border-radius: 8px;
-    margin-bottom: 15px;
+    font-weight: bold;
     text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
+
 
 h1 {
     color: #fcba03;
