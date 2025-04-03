@@ -42,6 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <button type="submit">Add User</button>
         </form>
+		<form action="logout.php" method="POST" style="margin-left: 10px;">
+			<button type="submit" style="background-color: red; color: white;">Logout</button>
+    </form>
     </div>
 </body>
 </html>
