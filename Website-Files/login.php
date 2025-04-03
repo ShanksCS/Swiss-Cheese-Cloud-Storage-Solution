@@ -38,9 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Check password (plain text version — use hashing in production)
         if ($user['password'] === $password) {
-            $_SESSION['username'] = $user['username'];
+            $_SESSION['username'] = $user['username']; // Save session id
             $_SESSION['name'] = $user['name'];
-            header("Location: upload.html");
+            header("Location: upload.php");
             exit();
         } else {
             // Incorrect password
