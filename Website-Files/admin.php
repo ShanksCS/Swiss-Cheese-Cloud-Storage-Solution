@@ -25,8 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="main">
+		<div class="logo-wrapper">
+            <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
+        </div>
         <h1>Admin Panel</h1>
-        <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
         <p>Add new users:</p>
         <form method="POST">
             <label>Username:</label>
@@ -38,13 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label>Password:</label>
             <input type="text" name="new_password" required>
 
-            <div class="wrap">
-        <button type="submit">Add User</button>
-    </form>
-    <form action="logout.php" method="POST" style="margin-left: 10px;">
-        <button type="submit" style="background-color: red; color: white;">Logout</button>
-    </form>
-</div>
+            <button type="submit">Add User</button>
         </form>
     </div>
 </body>
