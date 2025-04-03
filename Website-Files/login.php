@@ -1,8 +1,7 @@
 <?php
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-session_start();
-$error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
@@ -11,9 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn = new mysqli('localhost', 'root', '1234', 'scss_sql');
 
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die("Database connection failed: " . $conn->connect_error);
     }
 
+    // Insecure login: no hashing or sanitization
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($query);
 
@@ -26,7 +26,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: login.html?error=" . urlencode($error));
         exit();
     }
-
-    $conn->close();
 }
 ?>
