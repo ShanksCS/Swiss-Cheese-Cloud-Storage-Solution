@@ -70,10 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fileUpload'])) {
     </div>
   </div>
 
-    <!-- Logout Button (bottom right) -->
-    <form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px;">
-        <button type="submit" style="background-color: red; width: auto;">Logout</button>
-    </form>
+	<form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 50px;">
+		<button type="submit" style="background-color: red; width: auto; padding: 10px 20px;">Logout</button>
+	</form>
+
 </body>
 </html>
 
