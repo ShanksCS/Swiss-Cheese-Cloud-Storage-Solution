@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login - SCSS</title>
+    <title>Login - Swiss Cheese Storage Solution</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="page-container">
+  <div class="page-container">
+    <!-- Logo in top-right -->
     <div class="top-right-logo">
-        <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
+      <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
     </div>
+
     <div class="main">
-        <h1>Login</h1>
-        <?php if (isset($_GET['error'])): ?>
-            <div class="error"><?= htmlspecialchars($_GET['error']) ?></div>
-        <?php endif; ?>
-        <form method="POST" action="login.php">
-            <label>Username:</label>
-            <input type="text" name="username" required />
-            <label>Password:</label>
-            <input type="password" name="password" required />
-            <button type="submit">Login</button>
-        </form>
+      <h1>Login to SCSS</h1>
+
+      <?php if (isset($_GET['error'])): ?>
+        <div class="error"><?= htmlspecialchars($_GET['error']) ?></div>
+      <?php endif; ?>
+
+      <form action="login.php" method="POST">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required />
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required />
+
+        <button type="submit">Login</button>
+      </form>
     </div>
-</div>
+  </div>
 </body>
 </html>
