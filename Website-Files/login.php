@@ -5,23 +5,27 @@ ini_set('display_errors', 1);
 
 $error = '';
 
-// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['first'];
     $password = $_POST['password'];
 
     $conn = new mysqli('localhost', 'root', '1234', 'scss_sql');
+
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Insecure (on purpose): No sanitization or hashing
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($query);
 
     if ($result && $result->num_rows === 1) {
         $_SESSION['username'] = $username;
-        header("Location: upload.php");
+
+        if ($username === 'admin') {
+            header("Location: admin.php");
+        } else {
+            header("Location: upload.php");
+        }
         exit();
     } else {
         $error = "Invalid username or password.";
@@ -34,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SCSS</title>
+    <title>SCSS Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
