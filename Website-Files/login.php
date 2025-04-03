@@ -1,63 +1,41 @@
 <?php
 session_start();
+$error = '';
 
-// Database config
-$host = 'localhost';
-$db   = 'scss_sql';
-$user = 'root';
-$pass = '1234'; // Replace with your actual MySQL password
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-// Connect to database
-$conn = new mysqli($host, $user, $pass, $db);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Check if form was submitted
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Get form values
-    $username = trim($_POST['first']);
-    $password = trim($_POST['password']);
-
-    // Prepare and execute SQL query
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
-    if (!$stmt) {
-        header("Location: index.php?error=Something+went+wrong");
+    // 🔓 Insecure: Hardcoded credentials
+    if ($username === 'user1' && $password === 'password123') {
+        $_SESSION['username'] = $username;
+        header("Location: upload.php");
         exit();
-    }
-
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // Check user exists
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
-
-        // Check password (plain text version — use hashing in production)
-        if ($user['password'] === $password) {
-            $_SESSION['username'] = $user['username']; // Save session id
-            $_SESSION['name'] = $user['name'];
-            header("Location: upload.php");
-            exit();
-        } else {
-            // Incorrect password
-            header("Location: index.php?error=Incorrect+password");
-            exit();
-        }
     } else {
-        // User not found
-        header("Location: index.php?error=User+not+found");
-        exit();
+        $error = "Invalid credentials!";
     }
-
-    $stmt->close();
-    $conn->close();
-} else {
-    // Redirect to login page if accessed directly
-    header("Location: index.php");
-    exit();
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - SCSS</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="main">
+    <h1>Login</h1>
+    <?php if ($error): ?>
+        <div class="error"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+    <form method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" required />
+        <label>Password:</label>
+        <input type="password" name="password" required />
+        <button type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>
