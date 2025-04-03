@@ -5,19 +5,17 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-$username = $_SESSION['username'];
+$username = $_SESSION['username']; // NO sanitization on purpose
 
-if (!is_dir("uploads")) {
-    mkdir("uploads", 0777, true);
-}
-$userDir = "uploads/$username/";
-if (!is_dir($userDir)) {
-    mkdir($userDir, 0777, true);
-}
-
+// Handle file upload
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fileUpload'])) {
+    $userDir = "uploads/$username/";
+    if (!is_dir($userDir)) {
+        mkdir($userDir, 0777, true); // Insecure permissions
+    }
+
     $targetPath = $userDir . basename($_FILES['fileUpload']['name']);
-    move_uploaded_file($_FILES['fileUpload']['tmp_name'], $targetPath);
+    move_uploaded_file($_FILES['fileUpload']['tmp_name'], $targetPath); // No file checks at all
 }
 ?>
 
@@ -30,18 +28,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fileUpload'])) {
 </head>
 <body>
   <div class="page-container">
+    <!-- Logo -->
     <div class="top-right-logo">
       <img src="logo.png" alt="Swiss Cheese Storage Solution" />
     </div>
 
     <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
 
+    <!-- Upload Form -->
     <form action="upload.php" method="POST" enctype="multipart/form-data">
       <label for="fileUpload">Select a file to upload:</label>
       <input type="file" id="fileUpload" name="fileUpload" required />
       <button type="submit">Upload</button>
     </form>
 
+    <!-- File List (no access control!) -->
     <div class="file-list">
       <h3>All Uploaded Files</h3>
       <?php
