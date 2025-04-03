@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fileUpload'])) {
 <body>
   <div class="page-container">
     <div class="top-right-logo">
-      <img src="logo.png" alt="Swiss Cheese Storage Solution" />
+      <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
     </div>
 
     <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
