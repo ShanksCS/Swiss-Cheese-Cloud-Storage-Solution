@@ -38,8 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fileUpload'])) {
 
     <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
 
-    <!-- Logout Button -->
 	<form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 50px;">
+		<button type="submit" style="background-color: red; width: auto; padding: 10px 20px;">Logout</button>
+	</form>
+
 
 
     <form action="upload.php" method="POST" enctype="multipart/form-data">
