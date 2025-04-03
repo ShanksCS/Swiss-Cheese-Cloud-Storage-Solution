@@ -39,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fileUpload'])) {
     <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
 
     <!-- Logout Button -->
-    
+	<form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 50px;">
+
 
     <form action="upload.php" method="POST" enctype="multipart/form-data">
       <label for="fileUpload">Select a file to upload:</label>
@@ -69,11 +70,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fileUpload'])) {
       ?>
     </div>
   </div>
-
-    <!-- Logout Button (bottom right) -->
-    <form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px;">
-        <button type="submit" style="background-color: red; width: auto;">Logout</button>
-    </form>
 </body>
 </html>
-
