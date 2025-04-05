@@ -77,16 +77,14 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
                                 <?php endif; ?>
                             </td>
                     </tr>
+				        <form action="logout.php" method="POST" style="margin-top: 20px;">
+							<button type="submit" style="background-color: red; color: white;">Logout</button>
+						</form>
                 <?php endwhile; ?>
             </table>
 			
         </div>
-    </div>   
-
-<!-- Reliable JS-based logout button -->
-<button onclick="window.location.href='logout.php'" style="position: fixed; bottom: 30px; right: 30px; background-color: red; color: white; padding: 10px 20px; border-radius: 8px;">
-    Logout
-</button>
+    </div> 
 </body>
 </html>
 
