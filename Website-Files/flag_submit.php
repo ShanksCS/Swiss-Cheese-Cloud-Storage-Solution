@@ -8,8 +8,9 @@ if (!isset($_SESSION['found_flags'])) {
 }
 
 $valid_flags = [
-    "FLAG{sql_injection_success}",
-    "FLAG{xss_triggered}",
+    "FLAG{this_is_a_flag}",
+    "FLAG{weak_password_R14M}",
+    "FLAG{sql_injection_WLJ0}",
     "FLAG{file_upload_executed}"
 ];
 
