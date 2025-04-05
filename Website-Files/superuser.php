@@ -55,9 +55,9 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
         <h1>Welcome, <?= htmlspecialchars($_SESSION['username']) ?> (Superuser)</h1>
         <div class="file-list">
             <h3>User Management Table</h3>
-			<div style="text-align: right; margin: 10px;">
+			<div style="text-align: left; margin: 10px;">
 				<form action="logout.php" method="POST" style="margin-top: 20px;">
-					<button style="font-size: 12px; padding: 4px 8px; background-color: green; color: white; border: none; border-radius: 4px; float: left; margin: 10px;" style="font-size: 12px; padding: 4px 8px;" type="submit" style="background-color: red; color: white;">Logout</button>
+					<button type="submit" style="background-color: red; color: white;">Logout</button>
 				</form>
 			</div>
             <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
@@ -80,11 +80,11 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
                             <td>
                                 <?php if ($row['username'] !== 'superuser'): ?>
                                     <input type="hidden" name="update_user" value="<?= htmlspecialchars($row['username']) ?>">
-                                    <button style="font-size: 12px; padding: 4px 8px; background-color: green; color: white; border: none; border-radius: 4px; float: left; margin: 10px;" style="font-size: 12px; padding: 4px 8px;" type="submit">Save</button>
+                                    <button type="submit">Save</button>
                         </form>
                         <form method="POST" style="display:inline;">
                             <input type="hidden" name="delete_user" value="<?= htmlspecialchars($row['username']) ?>">
-                            <button style="font-size: 12px; padding: 4px 8px; background-color: green; color: white; border: none; border-radius: 4px; float: left; margin: 10px;" style="font-size: 12px; padding: 4px 8px;" type="submit" style="background-color: crimson; color: white;">Delete</button>
+                            <button type="submit" style="background-color: crimson; color: white;">Delete</button>
                         </form>
                                 <?php else: ?>
                                     <em>Protected</em>
