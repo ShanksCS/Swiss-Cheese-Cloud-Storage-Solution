@@ -47,19 +47,12 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
 </head>
 <body>
 
-<div style="text-align: right; margin: 10px;">
-    <form action="logout.php" method="post">
-        <button type="submit">Logout</button>
-    </form>
-</div>
-
     <div class="page-container">
         <div class="top-right-logo">
             <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
         </div>
 
         <h1>Welcome, <?= htmlspecialchars($_SESSION['username']) ?> (Superuser)</h1>
-
         <div class="file-list">
             <h3>User Management Table</h3>
             <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
@@ -98,6 +91,11 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
         </div>
     </div>
 </form>
+	<div style="text-align: right; margin: 10px;">
+		<form action="logout.php" method="post">
+			<button type="submit">Logout</button>
+		</form>
+	</div>
 </body>
 </html>
 
