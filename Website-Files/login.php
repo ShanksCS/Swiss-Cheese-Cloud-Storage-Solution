@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['first'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
     $conn = new mysqli('localhost', 'root', '1234', 'scss_sql');
@@ -58,8 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form action="login.php" method="post">
-            <label for="first">Username:</label>
-            <input type="text" id="first" name="first" placeholder="Enter your Username">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your Username">
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter your Password">
