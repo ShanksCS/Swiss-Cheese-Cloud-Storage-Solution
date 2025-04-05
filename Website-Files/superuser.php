@@ -57,11 +57,12 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
             <h3>User Management Table</h3>
 			<div style="text-align: left; margin: 10px;">
 				<form action="logout.php" method="POST" style="margin-top: 20px; display: inline;">
-					<button type="submit" style="background-color: red; color: white; font-size: 12px; padding: 4px 8px; border: none; border-radius: 4px; width: auto;">
+					<button type="submit" style="background-color: red; color: white; padding: 10px 20px; font-size: 16px; border: none; border-radius: 4px; width: auto;">
 						Logout
 					</button>
 				</form>
 			</div>
+
             <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
                 <tr>
                     <th>Username</th>
