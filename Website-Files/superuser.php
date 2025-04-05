@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+// Prevent caching
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Expires: 0");
+header("Pragma: no-cache");
+
 // Prevent browser caching
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -87,10 +92,10 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
     </div>
 
 <!-- Clean Logout Button -->
-<form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
-    <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border-radius: 8px;">
-        Logout
-    </button>
+<form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px;">
+  <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border-radius: 8px;">
+    Logout
+  </button>
 </form>
 </body>
 </html>
