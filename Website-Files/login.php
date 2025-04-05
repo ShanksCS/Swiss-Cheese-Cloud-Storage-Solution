@@ -20,18 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result && $result->num_rows === 1) {
         $_SESSION['username'] = $username;
-		$conn->query("UPDATE users SET last_login = NOW() WHERE username = '$username'");
+        $conn->query("UPDATE users SET last_login = NOW() WHERE username = '$username'");
 
-		if ($username === 'admin') {
-			header("Location: admin.php");
-
-		} elseif ($username === 'superuser') {
-			header("Location: superuser.php");
-
-		} else {
-			header("Location: upload.php");
-		}
-		exit();
+        if ($username === 'admin') {
+            header("Location: admin.php");
+        } elseif ($username === 'superuser') {
+            header("Location: superuser.php");
+        } else {
+            header("Location: upload.php");
+        }
+        exit();
+    } else {
+        $error = "Invalid username or password.";
+    }
 
     $conn->close();
 }
