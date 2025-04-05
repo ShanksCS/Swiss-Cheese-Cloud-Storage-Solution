@@ -8,6 +8,15 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
 $conn = new mysqli('localhost', 'root', '1234', 'scss_sql');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['new_username'], $_POST['new_name'], $_POST['new_password'])) {
+        $newUser = $_POST['new_username'];
+        $newName = $_POST['new_name'];
+        $newPass = $_POST['new_password'];
+        $conn->query("INSERT INTO users (username, name, password) VALUES ('$newUser', '$newName', '$newPass')");
+        $_SESSION['user_added'] = true;
+        header("Location: admin.php");
+        exit();
+    }
     $newUser = $_POST['new_username'];
     $newName = $_POST['new_name'];
     $newPass = $_POST['new_password'];
@@ -30,6 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="main">
+    <?php if (isset($_SESSION['user_added']) && $_SESSION['user_added'] === true): ?>
+        <div style="background-color: #d4edda; color: #155724; border: 2px solid #c3e6cb; padding: 12px; border-radius: 8px; margin-bottom: 20px;">
+            ✅ User successfully added!
+        </div>
+        <?php unset($_SESSION['user_added']); ?>
+    <?php endif; ?>
 		<div class="logo-wrapper">
             <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
         </div>
