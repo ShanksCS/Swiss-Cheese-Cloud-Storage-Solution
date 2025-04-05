@@ -24,6 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($username === 'admin') {
             header("Location: admin.php");
+			
+		elseif ($username === 'superuser') {
+			header("Location: superuser.php");
+			
         } else {
             header("Location: upload.php");
         }
