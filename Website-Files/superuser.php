@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+// Disable page caching
+header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'superuser') {
     header("Location: login.php");
     exit();
@@ -87,10 +95,6 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
 			
         </div>
     </div> 
-
-<!-- Reliable Logout Button -->
-
-
 <!-- Reliable Logout Button -->
 <form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px;">
     <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border-radius: 8px;">Logout</button>
