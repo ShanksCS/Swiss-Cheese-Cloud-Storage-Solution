@@ -47,8 +47,8 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
             <h3>User Management Table</h3>
             <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
                 <tr>
-                    <th>Username</th>
                     <th>Name</th>
+                    <th>Username</th>
                     <th>Password</th>
                     <th>Created</th>
                     <th>Last Login</th>
@@ -57,8 +57,8 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
                 <?php while ($row = $users->fetch_assoc()): ?>
                     <tr>
                         <form method="POST">
-                            <td><?= htmlspecialchars($row['username']) ?></td>
                             <td><input type="text" name="edit_name" value="<?= htmlspecialchars($row['name']) ?>" required></td>
+							<td><?= htmlspecialchars($row['username']) ?></td>
                             <td><input type="text" name="edit_password" value="<?= htmlspecialchars($row['password']) ?>" required></td>
                             <td><?= htmlspecialchars($row['created_at']) ?></td>
                             <td><?= $row['last_login'] ? htmlspecialchars($row['last_login']) : 'No last login' ?></td>
