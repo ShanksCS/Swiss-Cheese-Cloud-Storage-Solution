@@ -30,15 +30,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="main">
-        <?php if (isset($_SESSION['user_added'])): ?>
+        <div class="logo-wrapper">
+            <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
+        </div>
+        <h1>Admin Panel</h1>
+        <p>Add new users:</p>
+		<?php if (isset($_SESSION['user_added'])): ?>
             <div style="background-color: #d4edda; color: #155724; border: 2px solid #c3e6cb; padding: 12px; border-radius: 8px; margin-bottom: 20px;">
                 User successfully added!
             </div>
             <?php unset($_SESSION['user_added']); ?>
         <?php endif; ?>
-
-        <h1>Admin Panel</h1>
-        <p>Add new users:</p>
         <form method="POST">
             <label>Username:</label>
             <input type="text" name="new_username" required>
