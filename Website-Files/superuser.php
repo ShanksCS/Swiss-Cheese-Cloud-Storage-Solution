@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'superuser') {
+    header("Location: login.php");
+    exit();
+}
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -85,11 +89,15 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
     </div> 
 
 <!-- Reliable Logout Button -->
+
+
+<!-- Reliable Logout Button -->
 <form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px;">
     <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border-radius: 8px;">Logout</button>
 </form>
 </body>
 </html>
+
 
 
 
