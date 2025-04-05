@@ -19,7 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($query);
 
     if ($result && $result->num_rows === 1) {
-        $_SESSION['username'] = $username;
+        //$_SESSION['username'] = $username; OLD LOGIN query
+		$conn->query("UPDATE users SET last_login = NOW() WHERE username = '$username'");
 
         if ($username === 'admin') {
             header("Location: admin.php");

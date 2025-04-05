@@ -46,27 +46,27 @@ $users = $conn->query("SELECT username, name, password FROM users");
         <div class="file-list">
             <h3>User Management Table</h3>
             <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
-                <tr><th>Username</th><th>Name</th><th>Password</th><th>Actions</th></tr>
-                <?php while ($row = $users->fetch_assoc()): ?>
-                    <tr>
-                        <form method="POST">
-                            <td><?= htmlspecialchars($row['username']) ?></td>
-                            <td><input type="text" name="edit_name" value="<?= htmlspecialchars($row['name']) ?>" required></td>
-                            <td><input type="text" name="edit_password" value="<?= htmlspecialchars($row['password']) ?>" required></td>
-                            <td>
-                                <?php if ($row['username'] !== 'superuser'): ?>
-                                    <input type="hidden" name="update_user" value="<?= htmlspecialchars($row['username']) ?>">
-                                    <button type="submit">Save</button>
-                        </form>
-                        <form method="POST" style="display:inline;">
-                            <input type="hidden" name="delete_user" value="<?= htmlspecialchars($row['username']) ?>">
-                            <button type="submit" style="background-color: crimson; color: white;">Delete</button>
-                        </form>
-                                <?php else: ?>
-                                    <em>Protected</em>
-                                <?php endif; ?>
-                            </td>
-                    </tr>
+					<tr>
+						<form method="POST">
+							<td><?= htmlspecialchars($row['username']) ?></td>
+							<td><input type="text" name="edit_name" value="<?= htmlspecialchars($row['name']) ?>" required></td>
+							<td><input type="text" name="edit_password" value="<?= htmlspecialchars($row['password']) ?>" required></td>
+							<td><?= htmlspecialchars($row['created_at']) ?></td>
+							<td><?= htmlspecialchars($row['last_login']) ?></td>
+							<td>
+								<?php if ($row['username'] !== 'superuser'): ?>
+									<input type="hidden" name="update_user" value="<?= htmlspecialchars($row['username']) ?>">
+									<button type="submit">Save</button>
+						</form>
+						<form method="POST" style="display:inline;">
+							<input type="hidden" name="delete_user" value="<?= htmlspecialchars($row['username']) ?>">
+							<button type="submit" style="background-color: crimson; color: white;">Delete</button>
+						</form>
+								<?php else: ?>
+									<em>Protected</em>
+								<?php endif; ?>
+							</td>
+					</tr>
                 <?php endwhile; ?>
             </table>
         </div>
