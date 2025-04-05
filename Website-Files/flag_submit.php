@@ -21,10 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Submit a Flag</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
 <body>
 <div class="page-container">
     <div class="top-right-logo">
