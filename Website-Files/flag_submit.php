@@ -22,6 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 <html>
 <body>
+<head>
+    <title>Submit a Flag</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
 <div class="page-container">
     <div class="top-right-logo">
         <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
