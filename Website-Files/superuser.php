@@ -84,6 +84,9 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
 
  
     <!-- Logout button placed outside any forms/tables -->
+    
+
+    <!-- Logout button placed outside all forms -->
     <form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px;">
         <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 8px;">
             Logout
@@ -91,3 +94,4 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
     </form>
 </body>
 </html>
+
