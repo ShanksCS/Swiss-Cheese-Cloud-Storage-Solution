@@ -80,10 +80,14 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
                 <?php endwhile; ?>
             </table>
         </div>
+    </div>
 
-        <form action="logout.php" method="POST" style="margin-top: 30px; text-align: right;">
-            <button type="submit" style="background-color: red; color: white;">Logout</button>
-        </form>
+    <!-- Logout form moved outside main div for safe form nesting -->
+    <form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px;">
+        <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 8px;">Logout</button>
+    </form>
+</body>
+</html>
     </div>
 </body>
 </html>
