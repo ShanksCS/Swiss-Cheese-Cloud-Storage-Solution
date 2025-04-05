@@ -87,10 +87,11 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
     </div>
 
     <!-- Working logout button -->
-    <form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px;">
-        <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border-radius: 8px;">
-            Logout
-        </button>
-    </form>
+    
+<!-- Reliable Logout Button using JavaScript -->
+<button onclick="window.location.href='logout.php'" style="position: fixed; bottom: 30px; right: 30px; background-color: red; color: white; padding: 10px 20px; border-radius: 8px;">
+    Logout
+</button>
+
 </body>
 </html>
