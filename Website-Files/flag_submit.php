@@ -13,9 +13,9 @@ $feedback = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $submitted = trim($_POST["flag"] ?? "");
     if (in_array($submitted, $valid_flags)) {
-        $feedback = "<p style='color: green;'>✅ Correct! You found a valid flag.</p>";
+        $feedback = "<p style='color: green;'>Correct! You found a valid flag.</p>";
     } else {
-        $feedback = "<p style='color: red;'>❌ Nope. Try again!</p>";
+        $feedback = "<p style='color: red;'>Nope. Try again!</p>";
     }
 }
 ?>
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body style="background-color: #FFDD71;">
     <div class="flag-box">
         <img src="img/logo.png" alt="Swiss Cheese Storage Solution">
-        <h2>🏁 Submit Your Flag</h2>
+        <h2>Submit Your Flag</h2>
         <form method="POST">
             <input type="text" name="flag" placeholder="Enter the flag here" required>
             <button type="submit">Submit</button>
