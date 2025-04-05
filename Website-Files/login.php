@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $conn->query($query);
 
     if ($result && $result->num_rows === 1) {
-        //$_SESSION['username'] = $username; OLD LOGIN query
+        $_SESSION['username'] = $username;
 		$conn->query("UPDATE users SET last_login = NOW() WHERE username = '$username'");
 
         if ($username === 'admin') {
