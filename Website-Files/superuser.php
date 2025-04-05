@@ -61,7 +61,7 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
                             <td><input type="text" name="edit_name" value="<?= htmlspecialchars($row['name']) ?>" required></td>
                             <td><input type="text" name="edit_password" value="<?= htmlspecialchars($row['password']) ?>" required></td>
                             <td><?= htmlspecialchars($row['created_at']) ?></td>
-                            <td><?= htmlspecialchars($row['last_login']) ?></td>
+                            <td><?= $row['last_login'] ? htmlspecialchars($row['last_login']) : 'No last login' ?></td>
                             <td>
                                 <?php if ($row['username'] !== 'superuser'): ?>
                                     <input type="hidden" name="update_user" value="<?= htmlspecialchars($row['username']) ?>">
