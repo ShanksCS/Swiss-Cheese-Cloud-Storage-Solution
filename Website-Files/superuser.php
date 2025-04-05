@@ -10,20 +10,14 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'superuser') {
 
 $conn = new mysqli('localhost', 'root', '1234', 'scss_sql');
 
-// Handle update
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['update_user'])) {
-    $originalUsername = $_POST['update_user'];
-    $newUsername = $_POST['edit_username'];
-    $newName = $_POST['edit_name'];
-    $newPassword = $_POST['edit_password'];
-    $conn->query("UPDATE users SET username = '$newUsername', name = '$newName', password = '$newPassword' WHERE username = '$originalUsername'");
-
-        $username = $_POST['update_user'];
+        $originalUsername = $_POST['update_user'];
+        $newUsername = $_POST['edit_username'];
         $newName = $_POST['edit_name'];
         $newPassword = $_POST['edit_password'];
-        $query = "UPDATE users SET name = '$newName', password = '$newPassword' WHERE username = '$username'";
-        $conn->query($query);
+
+        $conn->query("UPDATE users SET username = '$newUsername', name = '$newName', password = '$newPassword' WHERE username = '$originalUsername'");
     } elseif (isset($_POST['delete_user'])) {
         $username = $_POST['delete_user'];
         if ($username !== 'superuser') {
@@ -32,23 +26,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$users = $conn->query("SELECT username, name, password FROM users");
+$users = $conn->query("SELECT username, name, password, created_at, last_login FROM users");
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Superuser Panel - SCSS</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Superuser Control Panel</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="main">
-        <h1>Superuser Panel</h1>
-        <p>Welcome, <?= htmlspecialchars($_SESSION['username']) ?>!</p>
+    <div class="page-container">
+        <div class="top-right-logo">
+            <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
+        </div>
 
-        <h2>All Users</h2>
-        <table border="1" cellpadding="10" cellspacing="0">
-            <tr><th>Username</th><th>Name</th><th>Password</th><th>Actions</th></tr>
-            <?php while ($row = $users->fetch_assoc()): ?>
+        <h1>Welcome, <?= htmlspecialchars($_SESSION['username']) ?> (Superuser)</h1>
+
+        <div class="file-list">
+            <h3>User Management Table</h3>
+            <table border="1" cellpadding="10" cellspacing="0" style="width: 100%;">
                 <tr>
                     <th>Username</th>
                     <th>Name</th>
@@ -60,7 +57,7 @@ $users = $conn->query("SELECT username, name, password FROM users");
                 <?php while ($row = $users->fetch_assoc()): ?>
                     <tr>
                         <form method="POST">
-                            <td><?= htmlspecialchars($row['username']) ?></td>
+                            <td><input type="text" name="edit_username" value="<?= htmlspecialchars($row['username']) ?>" required></td>
                             <td><input type="text" name="edit_name" value="<?= htmlspecialchars($row['name']) ?>" required></td>
                             <td><input type="text" name="edit_password" value="<?= htmlspecialchars($row['password']) ?>" required></td>
                             <td><?= htmlspecialchars($row['created_at']) ?></td>
@@ -82,9 +79,8 @@ $users = $conn->query("SELECT username, name, password FROM users");
                 <?php endwhile; ?>
             </table>
         </div>
->>>>>>> parent of e8d5c26 (Changed formatting of superuser.php)
 
-        <form action="logout.php" method="POST" style="margin-top: 20px;">
+        <form action="logout.php" method="POST" style="margin-top: 30px; text-align: right;">
             <button type="submit" style="background-color: red; color: white;">Logout</button>
         </form>
     </div>
