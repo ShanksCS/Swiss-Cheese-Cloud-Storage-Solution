@@ -14,6 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = "INSERT INTO users (username, name, password) VALUES ('$newUser', '$newName', '$newPass')";
     $conn->query($query);
+	
+    // Add success message
+    $_SESSION['user_added'] = true;
+    header("Location: admin.php");
+    exit();	
 }
 ?>
 
