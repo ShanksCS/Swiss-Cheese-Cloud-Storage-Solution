@@ -69,5 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </form>
     </div>
+    <div style="position: fixed; bottom: 10px; right: 10px; font-size: 12px; color: #555;">
+        Developed by Charlie Shanks
+    </div>
 </body>
 </html>
