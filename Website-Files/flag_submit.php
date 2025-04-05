@@ -22,48 +22,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Submit Your Flag</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: #f8f8f8;
-            padding: 40px;
-        }
-        .flag-box {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            max-width: 500px;
-            margin: auto;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        button {
-            margin-top: 15px;
-            background-color: #007BFF;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        h2 { margin-top: 0; }
-    </style>
+    <title>Submit a Flag</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="flag-box">
-        <h2>Enter a Flag</h2>
-        <form method="POST">
-            <label for="flag">Paste your flag here:</label>
-            <input type="text" name="flag" id="flag" required>
-            <button type="submit">Submit Flag</button>
-        </form>
-        <?= $feedback ?>
+<div class="page-container">
+    <div class="top-right-logo">
+        <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
     </div>
+
+    <h1 class="center">Submit Your Flag</h1>
+
+    <form method="POST" style="max-width: 500px; margin: auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        <label for="flag">Enter the flag you discovered:</label><br>
+        <input type="text" name="flag" id="flag" style="width: 100%; padding: 10px; margin-top: 10px;" required>
+        <button type="submit" style="margin-top: 15px;">Submit</button>
+        <div style="margin-top: 15px;">
+            <?= $feedback ?>
+        </div>
+    </form>
+</div>
 </body>
 </html>
