@@ -92,9 +92,9 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
     </div>
 </form>
 	<div style="text-align: right; margin: 10px;">
-		<form action="logout.php" method="post">
-			<button type="submit">Logout</button>
-		</form>
+        <form action="logout.php" method="POST" style="margin-top: 20px;">
+            <button type="submit" style="background-color: red; color: white;">Logout</button>
+        </form>
 	</div>
 </body>
 </html>
