@@ -20,26 +20,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Submit a Flag</title>
+    <meta charset="UTF-8">
+    <title>Flag Submission</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="page-container" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
-    <div style="background: #fff; border-radius: 12px; padding: 30px; max-width: 600px; width: 100%; box-shadow: 0 0 15px rgba(0,0,0,0.15); text-align: center;">
-        <div class="top-right-logo" style="margin-bottom: 20px;">
-            <img src="img/logo.png" alt="Swiss Cheese Storage Solution" style="max-width: 120px;" />
-        </div>
-        <h2>🏁 Submit Your Flag</h2>
-        <form method="POST">
-            <input type="text" name="flag" placeholder="Enter the flag here" style="width: 100%; padding: 12px; margin-top: 10px; font-size: 16px;" required>
-            <button type="submit" style="margin-top: 15px; padding: 10px 20px;">Submit</button>
-        </form>
-        <div style="margin-top: 20px;">
-            <?= $feedback ?>
+    <div class="page-container">
+        <div class="login-box">
+            <div class="top-right-logo">
+                <img src="img/logo.png" alt="Swiss Cheese Storage Solution">
+            </div>
+            <h2 class="center">🏁 Submit Your Flag</h2>
+            <form method="POST">
+                <input type="text" name="flag" placeholder="Enter the flag here" required>
+                <button type="submit">Submit</button>
+            </form>
+            <div style="margin-top: 15px;" class="center">
+                <?= $feedback ?>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>
