@@ -77,10 +77,10 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
                                 <?php endif; ?>
                             </td>
                     </tr>
-				        <form action="logout.php" method="POST" style="margin-top: 20px;">
+                <?php endwhile; ?>
+						<form action="logout.php" method="POST" style="margin-top: 20px;">
 							<button type="submit" style="background-color: red; color: white;">Logout</button>
 						</form>
-                <?php endwhile; ?>
             </table>
 			
         </div>
