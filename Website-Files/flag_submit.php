@@ -2,7 +2,11 @@
 <?php
 session_start();
 
-// Define accepted flags
+// Track flags in session
+if (!isset($_SESSION['found_flags'])) {
+    $_SESSION['found_flags'] = [];
+}
+
 $valid_flags = [
     "FLAG{sql_injection_success}",
     "FLAG{xss_triggered}",
@@ -13,10 +17,23 @@ $feedback = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $submitted = trim($_POST["flag"] ?? "");
     if (in_array($submitted, $valid_flags)) {
-        $feedback = "<p style='color: green;'>Correct! You found a valid flag.</p>";
+        if (!in_array($submitted, $_SESSION['found_flags'])) {
+            $_SESSION['found_flags'][] = $submitted;
+            $feedback = "<p style='color: green;'>Correct! You found a valid flag.</p>";
+        } else {
+            $feedback = "<p style='color: orange;'>You've already submitted this flag.</p>";
+        }
     } else {
         $feedback = "<p style='color: red;'>Nope. Try again!</p>";
     }
+}
+
+$found = count($_SESSION['found_flags']);
+$total = count($valid_flags);
+$progress = "<p style='margin-top: 10px;'>Flags found: <strong>$found / $total</strong></p>";
+
+if ($found === $total) {
+    $progress .= "<p style='color: blue;'>All flags found! Well done!</p>";
 }
 ?>
 <!DOCTYPE html>
@@ -67,6 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
         <div style="margin-top: 15px;">
             <?= $feedback ?>
+            <?= $progress ?>
         </div>
     </div>
 </body>
