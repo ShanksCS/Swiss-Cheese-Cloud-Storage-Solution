@@ -46,6 +46,13 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<div style="text-align: right; margin: 10px;">
+    <form action="logout.php" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
     <div class="page-container">
         <div class="top-right-logo">
             <img src="img/logo.png" alt="Swiss Cheese Storage Solution" />
@@ -90,12 +97,6 @@ $users = $conn->query("SELECT username, name, password, created_at, last_login F
             </table>
         </div>
     </div>
-
-<!-- Clean Logout Button -->
-<form action="logout.php" method="POST" style="position: fixed; bottom: 30px; right: 30px;">
-  <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border-radius: 8px;">
-    Logout
-  </button>
 </form>
 </body>
 </html>
