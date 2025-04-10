@@ -91,11 +91,11 @@ if ($found === $total) {
 <?php if (!empty($_SESSION['found_flags'])): ?>
 <div style='margin-top: 20px;'>
     <strong>Submitted Flags:</strong>
-    <ul>
-    <?php foreach ($_SESSION['found_flags'] as $flag): ?>
-        <li><?= htmlspecialchars($flag) ?></li>
-    <?php endforeach; ?>
-    </ul>
+	<ul style="list-style-type: none; padding-left: 0;">
+	<?php foreach ($_SESSION['found_flags'] as $flag): ?>
+		<li><?= htmlspecialchars($flag) ?></li>
+	<?php endforeach; ?>
+	</ul>
 </div>
 <?php endif; ?>
         </div>
