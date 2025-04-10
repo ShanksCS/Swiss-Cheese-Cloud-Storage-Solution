@@ -11,7 +11,9 @@ $valid_flags = [
     "FLAG{this_is_a_flag}",
     "FLAG{weak_password_R14M}",
     "FLAG{sql_injection_WLJ0}",
-    "FLAG{directory_brute_force_LK16}"
+    "FLAG{directory_brute_force_LK16}",
+    "FLAG{hidden_flag_IK02}",
+    "FLAG{reverse_shell_EM23}"
 ];
 
 $feedback = "";
