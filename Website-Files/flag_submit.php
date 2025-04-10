@@ -88,6 +88,16 @@ if ($found === $total) {
         <div style="margin-top: 15px;">
             <?= $feedback ?>
             <?= $progress ?>
+<?php if (!empty($_SESSION['found_flags'])): ?>
+<div style='margin-top: 20px;'>
+    <strong>Submitted Flags:</strong>
+    <ul>
+    <?php foreach ($_SESSION['found_flags'] as $flag): ?>
+        <li><?= htmlspecialchars($flag) ?></li>
+    <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
         </div>
     </div>
 </body>
