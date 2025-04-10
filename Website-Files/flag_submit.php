@@ -2,11 +2,6 @@
 <?php
 session_start();
 
-// Track flags in session
-if (!isset($_SESSION['found_flags'])) {
-    $_SESSION['found_flags'] = [];
-}
-
 $valid_flags = [
     "FLAG{this_is_a_flag}",
     "FLAG{weak_password_R14M}",
@@ -17,11 +12,16 @@ $valid_flags = [
 ];
 
 $feedback = "";
+$flag_file = "flags.txt";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $submitted = trim($_POST["flag"] ?? "");
+
+    $existing_flags = file_exists($flag_file) ? file("flags.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
+
     if (in_array($submitted, $valid_flags)) {
-        if (!in_array($submitted, $_SESSION['found_flags'])) {
-            $_SESSION['found_flags'][] = $submitted;
+        if (!in_array($submitted, $existing_flags)) {
+            file_put_contents($flag_file, $submitted . PHP_EOL, FILE_APPEND);
             $feedback = "<p style='color: green;'>Correct! You found a valid flag.</p>";
         } else {
             $feedback = "<p style='color: orange;'>You've already submitted this flag.</p>";
@@ -31,13 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-$found = count($_SESSION['found_flags']);
-$total = count($valid_flags);
-$progress = "<p style='margin-top: 10px;'>Flags found: <strong>$found / $total</strong></p>";
-
-if ($found === $total) {
-    $progress .= "<p style='color: blue;'>All flags found! Well done!</p>";
-}
+$found_flags = file_exists($flag_file) ? file($flag_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
+$found_count = count($found_flags);
+$total_flags = count($valid_flags);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,17 +83,14 @@ if ($found === $total) {
         </form>
         <div style="margin-top: 15px;">
             <?= $feedback ?>
-            <?= $progress ?>
-<?php if (!empty($_SESSION['found_flags'])): ?>
-<div style='margin-top: 20px;'>
-    <strong>Submitted Flags:</strong>
-	<ul style="list-style-type: none; padding-left: 0;">
-	<?php foreach ($_SESSION['found_flags'] as $flag): ?>
-		<li><?= htmlspecialchars($flag) ?></li>
-	<?php endforeach; ?>
-	</ul>
-</div>
-<?php endif; ?>
+            <p>Flags found: <strong><?= $found_count ?> / <?= $total_flags ?></strong></p>
+            <?php if ($found_count > 0): ?>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <?php foreach ($found_flags as $flag): ?>
+                        <li><?= htmlspecialchars($flag) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </div>
     </div>
 </body>
