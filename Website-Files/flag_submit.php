@@ -12,12 +12,12 @@ $valid_flags = [
 ];
 
 $feedback = "";
-$flag_file = "flags.txt";
+$flag_file = "submitted_flags.txt";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $submitted = trim($_POST["flag"] ?? "");
 
-    $existing_flags = file_exists($flag_file) ? file("flags.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
+    $existing_flags = file_exists($flag_file) ? file("submitted_flags.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
 
     if (in_array($submitted, $valid_flags)) {
         if (!in_array($submitted, $existing_flags)) {
