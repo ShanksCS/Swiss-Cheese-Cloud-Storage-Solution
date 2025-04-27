@@ -44,9 +44,7 @@ The project uses an Ubuntu host system inside Docker, running multiple virtual m
     - IP Address: (your machine’s IP address)
     - Port: 3389
 
-5. Use Virtual Machine Manager inside the Ubuntu Host to access the Ubuntu Server VM and Kali Linux VM.
-
-6. Begin testing vulnerabilities using the Kali Linux tools.
+5. Wait for the Kali Machine to load then begin testing vulnerabilities using the Kali Linux tools.
 
 ## Requirements
 - Docker installed on the host machine
