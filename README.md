@@ -24,7 +24,7 @@ The project uses an Ubuntu host system inside Docker, running multiple virtual m
 ## Lab book
 The SCSS Lab Guide provides a series of activities and challenges to complete once the environment is running. It focuses on exploring security vulnerabilities such as SQL Injection, Directory Brute-Forcing, and Remote Code Execution within the SCSS environment. The guide is designed to help users practice and apply cybersecurity techniques safely.
 
-[Swiss Cheese Storage Solution - Lab Sheet.pdf]([./SCSS_Lab_Guide.pdf](https://github.com/ShanksCS/Swiss-Cheese-Cloud-Storage-Solution/blob/2beb0ea63db24ed3679d2c85ca8447960426ec3e/Lab%20Book%20%26%20Installation/Swiss%20Cheese%20Storage%20Solution%20-%20Lab%20Sheet.pdf))
+📄 [Swiss Cheese Storage Solution - Lab Sheet](./Lab%20Book%20&%20Installation/Swiss%20Cheese%20Storage%20Solution%20-%20Lab%20Sheet.pdf)
 
 ## Installation Instructions
 
