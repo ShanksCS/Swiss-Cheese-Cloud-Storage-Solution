@@ -21,6 +21,11 @@ The project uses an Ubuntu host system inside Docker, running multiple virtual m
   - Remote Code Execution
 - Isolated network setup to ensure safe and contained testing.
 
+## Lab book
+The SCSS Lab Guide provides a series of activities and challenges to complete once the environment is running. It focuses on exploring security vulnerabilities such as SQL Injection, Directory Brute-Forcing, and Remote Code Execution within the SCSS environment. The guide is designed to help users practice and apply cybersecurity techniques safely.
+
+[Swiss Cheese Storage Solution - Lab Sheet.pdf]([./SCSS_Lab_Guide.pdf](https://github.com/ShanksCS/Swiss-Cheese-Cloud-Storage-Solution/blob/2beb0ea63db24ed3679d2c85ca8447960426ec3e/Lab%20Book%20%26%20Installation/Swiss%20Cheese%20Storage%20Solution%20-%20Lab%20Sheet.pdf))
+
 ## Installation Instructions
 
 [![Docker Pull](https://img.shields.io/badge/Docker-Pull-blue?logo=docker)](https://hub.docker.com/r/shanksc/scss-lab)
@@ -44,7 +49,11 @@ The project uses an Ubuntu host system inside Docker, running multiple virtual m
     - IP Address: (your machine’s IP address)
     - Port: 3389
 
-5. Wait for the Kali Machine to load then begin testing vulnerabilities using the Kali Linux tools.
+5. Login to the machine using the following credentials
+   - Username: root
+   - Passowrd: tiaspbiqe2r
+
+7. Wait for the Kali Machine to load then begin testing vulnerabilities using the Kali Linux tools.
 
 ## Requirements
 - Docker installed on the host machine
