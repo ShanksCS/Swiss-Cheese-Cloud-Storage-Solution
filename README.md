@@ -1,4 +1,6 @@
-<img src="Logo Design/logo.png" alt="Swiss Cheese Storage Solution Logo" width="300"/>
+<p align="center">
+  <img src="Logo Design/logo.png" alt="Swiss Cheese Storage Solution Logo" width="300"/>
+</p>
 
 ## Overview
 The Swiss Cheese Storage Solution (SCSS) is a lightweight cybersecurity lab environment designed for hands-on training. It allows users to explore common attack techniques, such as SQL Injection, Directory Brute-Forcing, and Remote Code Execution, within a safe and isolated setup.
