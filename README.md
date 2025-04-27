@@ -22,6 +22,9 @@ The project uses an Ubuntu host system inside Docker, running multiple virtual m
 - Isolated network setup to ensure safe and contained testing.
 
 ## Installation Instructions
+
+[![Docker Pull](https://img.shields.io/badge/Docker-Pull-blue?logo=docker)](https://hub.docker.com/r/shanksc/scss-lab)
+
 1. Install Docker Desktop from the official website:  
    [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop)
 
