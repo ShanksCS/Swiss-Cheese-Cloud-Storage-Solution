@@ -53,14 +53,14 @@ The SCSS Lab Guide provides a series of activities and challenges to complete on
 
 5. Login to the machine using the following credentials
    - Username: root
-   - Passowrd: tiaspbiqe2r
+   - Password: tiaspbiqe2r
 
 7. Wait for the Kali Machine to load then begin testing vulnerabilities using the Kali Linux tools.
 
 ## Requirements
 - Docker installed on the host machine
 - 8 GB RAM minimum (16 GB recommended)
-- CPU virtualization support (VT-x / AMD-V enabled in BIOS)
+- CPU virtualisation support (VT-x / AMD-V enabled in BIOS)
 
 ## Credits
 Created by Charlie Shanks as part of a cybersecurity training project.
